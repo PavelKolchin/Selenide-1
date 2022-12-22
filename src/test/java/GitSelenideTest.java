@@ -19,7 +19,8 @@ public class GitSelenideTest {
         //- Перейдите в раздел Wiki проекта
         $("[id=wiki-tab]").click();
         //- Убедитесь, что в списке страниц (Pages) есть страница SoftAssertions
-        $(byText("Soft assertions")).shouldHave(text("Soft assertions")).click();
+        $$("[type=button]").findBy(text("Show 2 more pages")).click();
+        $$(".Box-row a").findBy(text("SoftAssertions")).shouldHave(text("SoftAssertions")).click();
         //- Откройте страницу SoftAssertions, проверьте что внутри есть пример кода для JUnit5
         $("div.markdown-body").shouldHave(text("Using JUnit5 extend test class:"));
     }
